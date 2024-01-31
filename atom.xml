@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>Fine_974&#39;s Blog</title>
   
-  
+  <subtitle>珂学是第一生产力</subtitle>
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2024-01-31T03:59:03.512Z</updated>
+  <updated>2024-01-31T09:52:58.863Z</updated>
   <id>http://example.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Fine_974</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git 的正确使用姿势与最佳实践：团队协作和版本控制的最佳实践</title>
+    <link href="http://example.com/2024/01/31/A/"/>
+    <id>http://example.com/2024/01/31/A/</id>
+    <published>2024-01-31T09:32:33.000Z</published>
+    <updated>2024-01-31T09:52:58.863Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="版本控制与多人协作的实现"><a href="#版本控制与多人协作的实现" class="headerlink" title="版本控制与多人协作的实现"></a>版本控制与多人协作的实现</h2><h3 id="0-前面的话"><a href="#0-前面的话" class="headerlink" title="0. 前面的话"></a>0. 前面的话</h3><p>&emsp;&emsp;在现代软件开发领域，团队协作和版本控制是构建成功项目不可或缺的两个关键要素。随着软件项目的规模和复杂性不断增长，有效地管理代码、协调多人合作、跟踪变更以及保持项目的稳定性变得愈发重要。而Git作为分布式版本控制系统，为开发人员带来了强大的工具，帮助他们更好地应对这些挑战。</p><p>&emsp;&emsp;本文主要面向初次进行团队开发的成员，旨在探讨Git的正确使用姿势与最佳实践，以便其团队能够更加快速的入手，感受协作开发的高效性，轻松地管理项目的演变过程，并确保项目的质量和稳定性。</p><span id="more"></span><h3 id="1-事先准备"><a href="#1-事先准备" class="headerlink" title="1. 事先准备"></a>1. 事先准备</h3><ul><li><p>Git下载</p><ul><li>官网下载<a href="https://git-scm.com/">Git (git-scm.com)</a>或命令行<code>git update-git-for-windows</code>更新至新版本</li></ul></li><li><p>注册<a href="https://github.com/">GitHub</a>账号</p></li></ul><h3 id="2-克隆代码到本地"><a href="#2-克隆代码到本地" class="headerlink" title="2. 克隆代码到本地"></a>2. 克隆代码到本地</h3><p>&emsp;&emsp;在多人协作的项目搭建中，通常是由项目组长发起项目协作，通过邮件邀请协作对象加入，被邀请者只需通过邮件点击确认加入项目即可。同时将项目内容克隆到本地，即可在本地进行项目的开发。</p><h4 id="2-1-通过邮箱验证加入Github多人协作"><a href="#2-1-通过邮箱验证加入Github多人协作" class="headerlink" title="2.1. 通过邮箱验证加入Github多人协作"></a>2.1. 通过邮箱验证加入Github多人协作</h4><p><img src="https://pic.imgdb.cn/item/65ba157c871b83018a598be1.png"></p><h4 id="2-2-获取远程仓库的URL地址"><a href="#2-2-获取远程仓库的URL地址" class="headerlink" title="2.2. 获取远程仓库的URL地址"></a>2.2. 获取远程仓库的URL地址</h4><p><img src="https://pic.imgdb.cn/item/65ba1585871b83018a59ae50.png"></p><h4 id="2-3-进入项目工程路径下，打开Git"><a href="#2-3-进入项目工程路径下，打开Git" class="headerlink" title="2.3. 进入项目工程路径下，打开Git"></a>2.3. 进入项目工程路径下，打开Git</h4><p><img src="https://pic.imgdb.cn/item/65ba1602871b83018a5b4362.png"></p><h4 id="2-4-克隆仓库至本地"><a href="#2-4-克隆仓库至本地" class="headerlink" title="2.4. 克隆仓库至本地"></a>2.4. 克隆仓库至本地</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/THGRakid/Reborn-but-in-Go.git</span><br></pre></td></tr></table></figure><p><img src="https://pic.imgdb.cn/item/65ba1617871b83018a5b836c.png"></p><h3 id="3-拉取个人分支"><a href="#3-拉取个人分支" class="headerlink" title="3. 拉取个人分支"></a>3. 拉取个人分支</h3><p>&emsp;&emsp;<strong>分支</strong>，顾名思义，是在同一项目在同一时间下的不同版本，项目开发人员可以分工协作开发自己的模块并通过分支更新至版本库。</p><h4 id="3-1-查看项目分支"><a href="#3-1-查看项目分支" class="headerlink" title="3.1. 查看项目分支"></a>3.1. 查看项目分支</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -a //查看所有分支，包括本地分支和远程分支</span><br><span class="line">git branch -r //查看远程分支</span><br></pre></td></tr></table></figure><p><img src="https://pic.imgdb.cn/item/65ba1627871b83018a5bb31a.png"></p><h4 id="3-2-本地创建新的分支"><a href="#3-2-本地创建新的分支" class="headerlink" title="3.2. 本地创建新的分支"></a>3.2. 本地创建新的分支</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b branchname //直接新建一个分支然后切换至新创建的分支，其中branchname为自定义分支名字</span><br></pre></td></tr></table></figure><p><img src="https://pic.imgdb.cn/item/65ba1637871b83018a5be23c.png"></p><h4 id="3-3-将新分支推送至GitHub"><a href="#3-3-将新分支推送至GitHub" class="headerlink" title="3.3. 将新分支推送至GitHub"></a>3.3. 将新分支推送至GitHub</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin branchname</span><br></pre></td></tr></table></figure><p>登录验证</p><img src="https://pic.imgdb.cn/item/65ba1642871b83018a5c0765.png" width="500px"/><p><img src="https://pic.imgdb.cn/item/65ba1651871b83018a5c3c51.png"></p><p>提交成功后可查看验证</p><p><img src="https://pic.imgdb.cn/item/65ba165c871b83018a5c640a.png"></p><h3 id="4-关联本地编辑器"><a href="#4-关联本地编辑器" class="headerlink" title="4. 关联本地编辑器"></a>4. 关联本地编辑器</h3><p>&emsp;&emsp;为了便于开发，我们可以将git操作与Goland编辑器关联，从而更好地进行项目的开发。</p><ul><li><p>打开”文件-设置-版本控制“</p><p><img src="https://pic.imgdb.cn/item/65ba166c871b83018a5c998f.png"></p></li><li><p>配置Git可执行文件路径</p><p><img src="https://pic.imgdb.cn/item/65ba167c871b83018a5cc868.png"></p></li><li><p>绑定Github账号</p><p><img src="https://pic.imgdb.cn/item/65ba168e871b83018a5d0351.png"></p></li></ul><h3 id="5-多人协作测试"><a href="#5-多人协作测试" class="headerlink" title="5. 多人协作测试"></a>5. 多人协作测试</h3><p>&emsp;&emsp;至此，基本的多人协作环境的搭建已经完成，对于初学者来说，可以简单通过提交修改<code>readme.md</code>文件，来验证是否能够成功推送分支内容。</p><ul><li><p>打开readme.md文件，添加自己的分工信息</p></li><li><p>点击提交，添加提交信息</p><p><img src="https://pic.imgdb.cn/item/65ba16b3871b83018a5d788a.png"></p></li><li><p>可看到自己分支下成功提交内容</p><p><img src="https://pic.imgdb.cn/item/65ba16ef871b83018a5e335b.png"></p></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;版本控制与多人协作的实现&quot;&gt;&lt;a href=&quot;#版本控制与多人协作的实现&quot; class=&quot;headerlink&quot; title=&quot;版本控制与多人协作的实现&quot;&gt;&lt;/a&gt;版本控制与多人协作的实现&lt;/h2&gt;&lt;h3 id=&quot;0-前面的话&quot;&gt;&lt;a href=&quot;#0-前面的话&quot; class=&quot;headerlink&quot; title=&quot;0. 前面的话&quot;&gt;&lt;/a&gt;0. 前面的话&lt;/h3&gt;&lt;p&gt;&amp;emsp;&amp;emsp;在现代软件开发领域，团队协作和版本控制是构建成功项目不可或缺的两个关键要素。随着软件项目的规模和复杂性不断增长，有效地管理代码、协调多人合作、跟踪变更以及保持项目的稳定性变得愈发重要。而Git作为分布式版本控制系统，为开发人员带来了强大的工具，帮助他们更好地应对这些挑战。&lt;/p&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;本文主要面向初次进行团队开发的成员，旨在探讨Git的正确使用姿势与最佳实践，以便其团队能够更加快速的入手，感受协作开发的高效性，轻松地管理项目的演变过程，并确保项目的质量和稳定性。&lt;/p&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Make Carrot Great Again！</title>
