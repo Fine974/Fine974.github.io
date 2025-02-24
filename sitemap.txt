@@ -1,4 +1,5 @@
+http://example.com/2023/08/09/go/
 http://example.com/2024/01/31/Carrot/
-http://example.com/2024/01/31/A/
+http://example.com/2024/01/31/use-of-git/
 http://example.com/2024/01/31/hello-world/
 http://example.com/
