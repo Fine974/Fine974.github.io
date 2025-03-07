@@ -1,0 +1,176 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Go 语言入门指南：基础语法和常用特性解析"><meta name="keywords" content=""><meta name="author" content="Fine_974"><meta name="copyright" content="Fine_974"><title>Go 语言入门指南：基础语法和常用特性解析 | Fine_974's Blog</title><link rel="shortcut icon" href="https://pic.imgdb.cn/item/5d3aa8c3451253d178b89fcc.png"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '6.3.0'
+} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Fine_974's Blog" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-%E5%89%8D%E9%9D%A2%E7%9A%84%E8%AF%9D"><span class="toc-text">0. 前面的话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85%E5%92%8C%E8%AE%BE%E7%BD%AE"><span class="toc-text">1. 安装和设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="toc-text">2. 基础语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%8C%85%E5%92%8C%E5%AF%BC%E5%85%A5"><span class="toc-text">2.1. 包和导入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%8F%98%E9%87%8F%E5%92%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9A"><span class="toc-text">2.2. 变量和数据类型：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E5%B8%B8%E9%87%8F"><span class="toc-text">2.3. 常量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E6%8E%A7%E5%88%B6%E6%B5%81"><span class="toc-text">2.4. 控制流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%87%BD%E6%95%B0"><span class="toc-text">2.5. 函数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%8D%E5%90%88%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">3. 复合数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-%E6%95%B0%E7%BB%84"><span class="toc-text">3.1. 数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-%E5%88%87%E7%89%87"><span class="toc-text">3.2. 切片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-%E6%98%A0%E5%B0%84"><span class="toc-text">3.3. 映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">3.4. 结构体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text">4. 并发编程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-Goroutine"><span class="toc-text">4.1. Goroutine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E9%80%9A%E9%81%93%EF%BC%88Channel%EF%BC%89"><span class="toc-text">4.2. 通道（Channel）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%BC%8F"><span class="toc-text">4.3. 并发模式</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://pic.imgdb.cn/item/5d3aa402451253d178b877e0.jpg"></div><div class="author-info__name text-center">Fine_974</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">8</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://dsonatina.github.io/">胡萝卜</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://pic.imgdb.cn/item/65be24f5871b83018aa67720.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Fine_974's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Go 语言入门指南：基础语法和常用特性解析</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-11</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="0-前面的话"><a href="#0-前面的话" class="headerlink" title="0. 前面的话"></a>0. 前面的话</h2><p>本文章为Go语言初学者的帮助教程，旨在帮助读者快速掌握Go编程语言的基础知识和常用特性。</p>
+<p><strong>Go</strong>语言，也被称为<strong>Golang</strong>，是一门由Google开发的现代编程语言，以其简洁、高效和强大的特性受到了广泛的关注和应用。</p>
+<p>Go 语言被设计成一门应用于搭载 Web 服务器，存储集群或类似用途的巨型中央服务器的系统编程语言。</p>
+<p>对于高性能分布式系统领域而言，Go 语言无疑比大多数其它语言有着更高的开发效率。它提供了海量并行的支持，这对于游戏服务端的开发而言是再好不过了。</p>
+<span id="more"></span>
+<h2 id="1-安装和设置"><a href="#1-安装和设置" class="headerlink" title="1. 安装和设置"></a>1. 安装和设置</h2><blockquote>
+<p>在学习Go语言之前，首先需要进行安装和设置，以确保你的开发环境能够正确地支持Go编程。</p>
+</blockquote>
+<ol>
+<li><p><strong>下载Go安装包</strong>：<br>前往Go官方网站（ <a target="_blank" rel="noopener" href="https://go.dev/dl/">https://go.dev/dl/</a> ）下载适合自己操作系统的安装包。Go支持多种操作系统，包括Windows、macOS和各种Linux发行版。选择与你操作系统和架构匹配的安装包。</p>
+<p><img src="https://pic1.imgdb.cn/item/67ca9fa1066befcec6e014df.png" alt="1"></p>
+</li>
+<li><p><strong>安装Go</strong>：<br>根据你的操作系统选择的安装包，进行相应的安装步骤。在大多数情况下，只需双击安装包并按照提示进行操作即可完成安装。</p>
+</li>
+<li><p><strong>设置环境变量</strong>：<br>安装完成后，需要设置Go的环境变量，以便在终端或命令行中使用Go命令。在Windows系统中，你需要将Go的安装目录（通常是 <code>C:\Go</code>）添加到系统的 <code>PATH</code> 环境变量中。</p>
+<p>在macOS和Linux系统中，你需要将Go的安装目录添加到你的shell配置文件（如 <code>.bashrc</code> 或 <code>.zshrc</code>）中。设置好环境变量后，你就可以在终端中运行Go命令了。</p>
+</li>
+<li><p><strong>验证安装</strong>：<br>打开终端或命令行，输入 <code>go version</code> 命令，查看Go的版本信息。如果显示了正确的版本号，说明安装成功。</p>
+<p><img src="https://pic1.imgdb.cn/item/67ca9fa2066befcec6e014e1.png" alt="2"></p>
+</li>
+<li><p><strong>创建工作目录</strong>：<br>在开始编写Go代码之前，你可能希望创建一个专门用于存放Go项目的工作目录。在这个目录中，你可以组织你的代码文件、依赖和其他资源。</p>
+</li>
+<li><p><strong>选择代码编辑器或集成开发环境（IDE）</strong>：<br>选择一个适合你的代码编辑器或IDE，以便开始编写Go代码。一些流行的选择包括<a target="_blank" rel="noopener" href="https://code.visualstudio.com/Download">Visual Studio Code（VSCode）</a>与<a target="_blank" rel="noopener" href="https://www.jetbrains.com/go/">GoLand</a>等。</p>
+</li>
+<li><p><strong>Hello World！</strong>：<br>现在，你已经完成了Go的安装和设置，可以尝试编写你的第一个Go程序了。创建一个新的Go源文件，命名为 <code>hello.go</code>，然后输入以下代码：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>保存文件后，在终端中进入文件所在目录，运行以下命令：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">go run hello.go</span><br></pre></td></tr></table></figure>
+<p>如果看到输出了 “Hello, World!”，那么恭喜你，你已经成功地安装、设置和运行了你的第一个Go程序！</p>
+</li>
+</ol>
+<p>安装和设置是开始学习任何编程语言的第一步，正确地完成这些步骤能够为你的Go编程之旅奠定坚实的基础。在接下来的学习中，你将逐渐了解更多关于Go语言的基础知识和特性。</p>
+<h2 id="2-基础语法"><a href="#2-基础语法" class="headerlink" title="2. 基础语法"></a>2. 基础语法</h2><h3 id="2-1-包和导入"><a href="#2-1-包和导入" class="headerlink" title="2.1. 包和导入"></a>2.1. 包和导入</h3><ul>
+<li>在Go语言中，其程序由包（Packages）组成，每个文件都属于一个包。</li>
+<li>其中<code>main</code> 包是程序的入口，包含了 <code>main()</code> 函数。</li>
+<li>使用 <code>import</code> 关键字导入其他包。</li>
+</ul>
+<p>在上述的<code>Hello.go</code>的程序中，所导入的<code>fmt</code>包实现了格式化 IO（输入/输出）的函数。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-变量和数据类型："><a href="#2-2-变量和数据类型：" class="headerlink" title="2.2. 变量和数据类型："></a>2.2. <strong>变量和数据类型</strong>：</h3><ul>
+<li>使用 <code>var</code> 关键字声明变量，Go会自动推断变量类型。</li>
+<li>基本数据类型包括整型、浮点型、布尔型、字符串等。</li>
+<li>使用 <code>:=</code> 简化变量声明和赋值。</li>
+</ul>
+<p>对于Go语言的变量声明，相比于传统语言的变量声明，Go语言最大的特点是可以选择省略变量类型，编译器可以根据右侧的值自动推断出变量的类型，这极大的方便了我们的开发，同时由于其变量声明有别于其他语言的<strong>变量类型+变量名</strong>，Go语言是相反的，因此省略变量类型的写法也可以方便其他语言的程序员快速上手Go语言。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">//指明变量类型的变量定义方法</span></span><br><span class="line"><span class="keyword">var</span> a <span class="type">string</span> = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="keyword">var</span> b <span class="type">int</span> = <span class="number">19260817</span></span><br><span class="line"><span class="keyword">var</span> c <span class="type">bool</span> = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//不指明变量类型的变量定义方法</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">19260817</span></span><br><span class="line"><span class="keyword">var</span> c = <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//简化变量定义方法</span></span><br><span class="line">a := <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line">b := <span class="number">19260817</span></span><br><span class="line">c := <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-常量"><a href="#2-3-常量" class="headerlink" title="2.3. 常量"></a>2.3. 常量</h3><ul>
+<li>使用 <code>const</code> 关键字声明常量。</li>
+<li>常量的值在编译时确定，不能被修改。</li>
+</ul>
+<p>Go语言中常量的声明与其他语言不太相同，需要使用<code>const</code>关键字替换<code>var</code>关键字，其他部分与变量相差不大。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> a <span class="type">string</span> = <span class="string">&quot;Hello, World!&quot;</span></span><br><span class="line"><span class="keyword">const</span> b <span class="type">int</span> = <span class="number">19260817</span></span><br><span class="line"><span class="keyword">const</span> c <span class="type">bool</span> = <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-4-控制流"><a href="#2-4-控制流" class="headerlink" title="2.4. 控制流"></a>2.4. 控制流</h3><ul>
+<li>使用 <code>if</code>、<code>else</code>、<code>switch</code> 进行条件判断。</li>
+<li>使用 <code>for</code> 进行循环，支持 <code>for</code>、<code>while</code>、<code>do-while</code> 三种风格。</li>
+<li><code>break</code> 和 <code>continue</code> 用于循环控制。</li>
+</ul>
+<p>对于分支语句if，Go语言和其他语言类似，唯一不同的是对于判断条件部分不需要用小括号包裹起来。而switch分支语句与其他语言略有不同，在Go语言中，不需要添加break，默认执行对应的case语句后退出。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">//if-else用法示例</span></span><br><span class="line"><span class="keyword">if</span> <span class="number">7</span> % <span class="number">2</span> == <span class="number">0</span> &#123;</span><br><span class="line">    fmt.Printlen(<span class="string">&quot;7 is even&quot;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    fmt.Printlen(<span class="string">&quot;7 is odd&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//switch用法示例</span></span><br><span class="line">a := <span class="number">2</span></span><br><span class="line"><span class="keyword">switch</span> a &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">        fmt.PrintIn(<span class="string">&quot;one&quot;</span>)  </span><br><span class="line">    <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">        fmt.PrintIn(<span class="string">&quot;two&quot;</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">        fmt.Printin(<span class="string">&quot;three&quot;</span>)</span><br><span class="line">    <span class="keyword">case</span> <span class="number">4</span>，<span class="number">5</span>:</span><br><span class="line">        fmt.Println(<span class="string">&quot;four or five&quot;</span>)</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        fmt.PrintIn(<span class="string">&quot;other&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>而对于循环语句，Go语言中没有其他传统语言中的while循环，但其for循环功能十分强大，支持while循环的书写风格。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">//传统for循环</span></span><br><span class="line"><span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;</span><br><span class="line">	fmt.Println(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//while循环风格书写</span></span><br><span class="line">i := <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i &lt;= <span class="number">10</span> &#123;</span><br><span class="line">    fmt.Println(i)</span><br><span class="line">    i++</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-5-函数"><a href="#2-5-函数" class="headerlink" title="2.5. 函数"></a>2.5. 函数</h3><ul>
+<li>使用 <code>func</code> 关键字定义函数，可以接收参数并返回值。</li>
+<li>支持多返回值。</li>
+<li>函数也可以作为一种类型，用于高阶函数的实现。</li>
+</ul>
+<p>在Go语言中，使用<code>func</code>关键字声明一个函数，函数声明的语法与其他语言略有差异，与基本的变量定义相同，Go语言中，函数的返回类型置于函数名和传递参数之后，需要多加留意。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">function_name</span><span class="params">( [parameter list] )</span></span> [return_types] &#123;</span><br><span class="line">   函数体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-复合数据类型"><a href="#3-复合数据类型" class="headerlink" title="3. 复合数据类型"></a>3. 复合数据类型</h2><blockquote>
+<p>在Go语言中，复合数据类型允许你将多个值组合在一起，以创建更为复杂和结构化的数据结构。本部分将介绍Go语言中的几种重要的复合数据类型，包括数组、切片、映射（Map）和结构体（Struct）。</p>
+</blockquote>
+<h3 id="3-1-数组"><a href="#3-1-数组" class="headerlink" title="3.1. 数组"></a>3.1. 数组</h3><ul>
+<li>数组是一种固定长度、相同数据类型元素的集合。</li>
+<li>声明数组：<code>var arr [n]T</code>，其中 <code>n</code> 为数组长度，<code>T</code> 为元素类型。</li>
+<li>初始化数组：<code>arr := [n]T&#123;val1, val2, ...&#125;</code>。</li>
+<li>访问数组元素：使用索引访问，索引从 0 开始。</li>
+</ul>
+<p>与多数传统语言一样，Go语言的数组在功能使用上相差不大，唯一注意的是其变量定义遵循Go语言自己的定义风格，即<strong>数据类型后置</strong>。同时，使用<code>len()</code>方法可以获取数组长度。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arr [<span class="number">10</span>]<span class="type">int</span></span><br><span class="line"></span><br><span class="line">arr[<span class="number">0</span>] = <span class="number">1123</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">5813</span></span><br><span class="line"></span><br><span class="line">fmt.Println(arr[<span class="number">1</span>], <span class="built_in">len</span>(arr)) <span class="comment">// 5813 2</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-2-切片"><a href="#3-2-切片" class="headerlink" title="3.2. 切片"></a>3.2. 切片</h3><ul>
+<li>切片是动态长度、指向数组的引用，类似于动态数组。</li>
+<li>创建切片：<code>slice := make([]T, length, capacity)</code>，其中<code>length</code> 为初始长度，<code>capacity</code> 为底层数组容量。</li>
+<li>切片操作：可以使用 <code>slice[start:end]</code> 对切片进行切割。</li>
+<li>切片扩容：通过 <code>append</code> 函数将元素添加到切片。</li>
+</ul>
+<p>而对于<strong>切片</strong>，其为Go语言特有的类型，可以类比为动态数组，即声明时不指定大小。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">arr := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="number">3</span>)</span><br><span class="line">arr[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">arr[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">arr[<span class="number">2</span>] = <span class="number">2</span></span><br><span class="line">fmt.Println(arr[<span class="number">1</span>], <span class="built_in">len</span>(arr)) <span class="comment">// 1 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//append()追加数据至切片</span></span><br><span class="line">arr = <span class="built_in">append</span>(arr, <span class="number">3</span>)</span><br><span class="line">arr = <span class="built_in">append</span>(arr, <span class="number">5</span>, <span class="number">8</span>)</span><br><span class="line">fmt.Println(arr)      <span class="comment">// [1 1 2 3 5 8]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//copy()复制切片</span></span><br><span class="line">arr2 := <span class="built_in">make</span>([]<span class="type">int</span>, <span class="built_in">len</span>(arr))</span><br><span class="line"><span class="built_in">copy</span>(arr2, arr)</span><br><span class="line">fmt.Println(arr2)     <span class="comment">// [1 1 2 3 5 8]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//类似Python的切片语法</span></span><br><span class="line">fmt.Println(arr[<span class="number">2</span>:<span class="number">5</span>]) <span class="comment">// [2 3 5]</span></span><br><span class="line">fmt.Println(arr[:<span class="number">5</span>])  <span class="comment">// [1 1 2 3 5]</span></span><br><span class="line">fmt.Println(arr[<span class="number">2</span>:])  <span class="comment">// [2 3 5 8]</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-3-映射"><a href="#3-3-映射" class="headerlink" title="3.3. 映射"></a>3.3. 映射</h3><ul>
+<li>创建映射：<code>m := make(map[K]V)</code>，其中 <code>K</code> 为键的类型，<code>V</code> 为值的类型。</li>
+<li>插入和访问元素：<code>m[key] = value</code>，<code>value = m[key]</code>。</li>
+<li>删除元素：<code>delete(m, key)</code>。</li>
+</ul>
+<p><strong>Map</strong> 是一种无序的<strong>键值对</strong>的集合，通过 <strong>key</strong> 来快速检索数据。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 创建一个初始容量为 10 的 Map</span></span><br><span class="line">m := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用字面量创建 Map</span></span><br><span class="line">m = <span class="keyword">map</span>[<span class="type">string</span>]<span class="type">int</span>&#123;</span><br><span class="line">	<span class="string">&quot;apple&quot;</span> : <span class="number">1</span>,</span><br><span class="line">	<span class="string">&quot;banana&quot;</span> : <span class="number">2</span>,</span><br><span class="line">	<span class="string">&quot;orange&quot;</span> : <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取键值对</span></span><br><span class="line">vl := m[<span class="string">&quot;apple&quot;</span>]</span><br><span class="line">v2, ok := m[<span class="string">&quot;pear&quot;</span>]</span><br><span class="line"><span class="comment">// 如果键不存在，ok 的值为 false，v2 的值为该类型的零值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改键值对</span></span><br><span class="line">m[<span class="string">&quot;apple&quot;</span>] = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取map长度</span></span><br><span class="line">len_m := <span class="built_in">len</span>(m)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除键值对</span></span><br><span class="line"><span class="built_in">delete</span>(m, <span class="string">&quot;banana&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-结构体"><a href="#3-4-结构体" class="headerlink" title="3.4. 结构体"></a>3.4. 结构体</h3><ul>
+<li>声明结构体：<code>type StructName struct &#123; field1 type1; field2 type2; ... &#125;</code>。</li>
+<li>创建结构体实例：<code>instance := StructName &#123; field1: val1, field2: val2, ... &#125;</code>。</li>
+<li>访问结构体字段：使用 <code>instance.field</code>。</li>
+</ul>
+<p>与其他的语言类似，Go语言中的结构体仍然是不同数据类型的字段的集合，用于表示一个更复杂的数据结构，其用法和其他语言相差不大。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> Books <span class="keyword">struct</span> &#123;</span><br><span class="line">    tilte <span class="type">string</span></span><br><span class="line">    author <span class="type">string</span></span><br><span class="line">    subject <span class="type">string</span></span><br><span class="line">    bookid <span class="type">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 声明 book1 为 Books 类型</span></span><br><span class="line"><span class="keyword">var</span> book1 Books </span><br><span class="line"></span><br><span class="line"><span class="comment">// book1 各参数赋值</span></span><br><span class="line">book1.title = <span class="string">&quot;Hello, Go!&quot;</span></span><br><span class="line">book1.author = <span class="string">&quot;张三&quot;</span></span><br><span class="line">book1.subject = <span class="string">&quot;IT&quot;</span></span><br><span class="line">book1.bookid = <span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<h2 id="4-并发编程"><a href="#4-并发编程" class="headerlink" title="4. 并发编程"></a>4. 并发编程</h2><blockquote>
+<p>并发是指在同一时间内处理多个任务的能力，Go语言以其独特的并发模型在编写并发程序时具有明显优势。本部分将深入介绍Go语言中的并发编程，包括Goroutine、通道（Channel）和并发模式等内容。</p>
+</blockquote>
+<h3 id="4-1-Goroutine"><a href="#4-1-Goroutine" class="headerlink" title="4.1. Goroutine"></a>4.1. Goroutine</h3><ul>
+<li>Goroutine 是Go语言的轻量级线程，由Go运行时管理。</li>
+<li>使用关键字 <code>go</code> 启动一个Goroutine，将函数调用包装为并发任务。</li>
+<li>Goroutine 之间共享内存，但通常通过通道进行通信，避免竞态条件。</li>
+</ul>
+<p>Goroutine 是 Go 语言中的轻量级并发执行单元，是其并发模型的核心组成部分。Goroutine 使得在同一个程序中同时执行多个任务变得更加容易和高效，而且在语言层面上提供了内置的支持。</p>
+<p>Goroutine 的创建和销毁开销非常小，相较于操作系统线程来说，创建数千甚至数百万个 Goroutine 是可行的。</p>
+<p>同时，在 Go 程序中，你可以同时启动多个 Goroutine，它们将会并发地执行，不需要手动管理线程池或任务队列。</p>
+<p>以下是一个使用 Goroutine 的简单示例，计算 1 到 10 的阶乘并打印结果：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">factorial</span><span class="params">(n <span class="type">int</span>, ch <span class="keyword">chan</span> <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">    result := <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= n; i++ &#123;</span><br><span class="line">        result *= i</span><br><span class="line">    &#125;</span><br><span class="line">    ch &lt;- result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="type">int</span>)</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;</span><br><span class="line">        <span class="keyword">go</span> factorial(i, ch)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++ &#123;</span><br><span class="line">        result := &lt;-ch</span><br><span class="line">        fmt.Printf(<span class="string">&quot;Factorial of %d: %d\n&quot;</span>, i, result)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过使用 Goroutine，Go 语言能够以高效、简洁的方式实现并发，充分利用多核处理器的能力，从而提升程序性能和响应能力。然而，需要注意正确地处理 Goroutine 之间的同步和通信，以避免竞态条件和数据访问问题。</p>
+<h3 id="4-2-通道（Channel）"><a href="#4-2-通道（Channel）" class="headerlink" title="4.2. 通道（Channel）"></a>4.2. 通道（Channel）</h3><ul>
+<li>通道是Goroutine之间进行通信和同步的机制。</li>
+<li>使用 <code>make</code> 函数创建通道：<code>ch := make(chan T)</code>，<code>T</code> 为通道中传递的数据类型。</li>
+<li>发送数据到通道：<code>ch &lt;- data</code>。发送操作会阻塞，直到通道有足够的空间来存储数据。</li>
+<li>从通道接收数据：<code>data := &lt;-ch</code>。接收操作会阻塞，直到通道中有数据可供接收。</li>
+<li>通道也支持带缓冲的通道：<code>ch := make(chan T, capacity)</code>。</li>
+</ul>
+<p><strong>通道（Channel）</strong>是 Go 语言中用于实现并发安全的数据传递和通信的机制。通道可以在 Goroutine 之间传递数据，并且能够在数据传递的同时进行同步操作，从而有效地避免了竞态条件和其他并发问题。</p>
+<p>默认情况下，通道的发送和接收操作都是阻塞的，直到有一方准备好。</p>
+<p>通过使用 <code>select</code> 语句可以实现非阻塞的通道操作，从而避免 Goroutine 阻塞在通道操作上。</p>
+<p>通道适用于多个 Goroutine 之间的数据传递和同步，比如任务队列、消息传递等场景。</p>
+<p>以下是一个简单的示例，演示了如何使用通道来计算两个数的和：</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="type">int</span>, ch <span class="keyword">chan</span> <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">	sum := a + b</span><br><span class="line">	ch &lt;- sum</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	ch := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="type">int</span>)</span><br><span class="line">	<span class="keyword">go</span> add(<span class="number">3</span>, <span class="number">5</span>, ch)</span><br><span class="line">	result := &lt;-ch</span><br><span class="line">	fmt.Println(<span class="string">&quot;Result:&quot;</span>, result)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-3-并发模式"><a href="#4-3-并发模式" class="headerlink" title="4.3. 并发模式"></a>4.3. 并发模式</h3><ul>
+<li>基于通道的并发模式：使用通道在Goroutine之间传递数据，实现数据同步和任务协调。</li>
+<li>扇出-扇入模式：将一个输入通道分发到多个处理Goroutine，然后将结果合并到一个输出通道。</li>
+<li>选择器模式：使用 <code>select</code> 语句监听多个通道，响应可读或可写的通道操作。</li>
+<li>互斥锁和条件变量：通过 <code>sync</code> 包实现对共享资源的互斥访问和条件同步。</li>
+<li>工作池模式：工作池维护一组 Goroutine，用于执行特定的任务。</li>
+<li>串行模式：使用通道将多个 Goroutine 串行化，确保它们按顺序执行。</li>
+</ul>
+<p>并发模式是一组在并发编程中常用的设计模式，用于解决在多个并发执行的 Goroutine 之间协调、同步和通信的问题。这些模式帮助开发者编写出更可靠、高效的并发程序，避免竞态条件、死锁和其他并发问题。</p>
+<p>这些并发模式帮助开发者解决了在并发编程中常见的问题，使得并发程序更易于理解、维护和调试。根据不同的应用场景，开发者可以选择合适的模式来组织并发代码，从而充分利用多核处理器的能力，提高程序性能和响应能力。</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Fine_974</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/08/11/Go 语言入门指南：基础语法和常用特性解析/">http://example.com/2023/08/11/Go 语言入门指南：基础语法和常用特性解析/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2023/08/23/Gorm%20%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"><i class="fa fa-chevron-left">  </i><span>Gorm 学习记录</span></a></div><div class="next-post pull-right"><a href="/2023/08/04/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E4%B8%8E%E5%A4%9A%E4%BA%BA%E5%8D%8F%E4%BD%9C%E7%9A%84%E5%AE%9E%E7%8E%B0/"><span>Git的正确使用姿势与最佳实践：团队协作和版本控制的最佳实践</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://pic.imgdb.cn/item/65be24f5871b83018aa67720.png)"><div class="layout" id="footer"><div class="copyright">&copy;2018 - 2025 By Fine_974</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>

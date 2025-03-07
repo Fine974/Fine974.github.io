@@ -1,0 +1,146 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Redis，启动！"><meta name="keywords" content=""><meta name="author" content="Fine_974"><meta name="copyright" content="Fine_974"><title>Redis，启动！ | Fine_974's Blog</title><link rel="shortcut icon" href="https://pic.imgdb.cn/item/5d3aa8c3451253d178b89fcc.png"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '6.3.0'
+} </script><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Fine_974's Blog" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Redis%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-text">1. Redis基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E4%BB%80%E4%B9%88%E6%98%AFRedis"><span class="toc-text">1.1. 什么是Redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8Redis"><span class="toc-text">1.2. 为什么用Redis</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E4%B8%8E%E5%90%AF%E5%8A%A8"><span class="toc-text">2. 安装与启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-text">3. 基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-String"><span class="toc-text">3.1. String</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-hash"><span class="toc-text">3.2. hash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-list"><span class="toc-text">3.3. list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-set"><span class="toc-text">3.4. set</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-Sorted-Set"><span class="toc-text">3.5. Sorted Set</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Go%E4%B8%8ERedis"><span class="toc-text">4. Go与Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-%E6%9C%8D%E5%8A%A1%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-text">4.1. 服务端配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE"><span class="toc-text">4.2. 客户端配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%B0%8F%E7%BB%93"><span class="toc-text">5. 小结</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://pic.imgdb.cn/item/5d3aa402451253d178b877e0.jpg"></div><div class="author-info__name text-center">Fine_974</div><div class="author-info__description text-center"></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">8</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" target="_blank" rel="noopener" href="https://dsonatina.github.io/">胡萝卜</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://pic.imgdb.cn/item/65be24f5871b83018aa67720.png)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Fine_974's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right"></span></div><div id="post-info"><div id="post-title">Redis，启动！</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2023-08-28</time></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h2 id="1-Redis基础概念"><a href="#1-Redis基础概念" class="headerlink" title="1. Redis基础概念"></a>1. Redis基础概念</h2><h3 id="1-1-什么是Redis"><a href="#1-1-什么是Redis" class="headerlink" title="1.1. 什么是Redis"></a>1.1. 什么是Redis</h3><p><strong>Redis（Remote Dictionary Server）</strong>是一种开源的内存数据存储系统，它可以用作数据库、缓存和消息中间件。它被设计成高性能、低延迟的键值存储系统，常用于加速应用程序的数据访问，特别是那些需要频繁读写的场景。</p>
+<p><img src="https://pic1.imgdb.cn/item/67caaab0066befcec6e0334c.webp" alt="1"></p>
+<span id="more"></span>
+<h3 id="1-2-为什么用Redis"><a href="#1-2-为什么用Redis" class="headerlink" title="1.2. 为什么用Redis"></a>1.2. 为什么用Redis</h3><p>与传统的关系型数据库（SQL）不同，Redis是一个键值存储系统，数据以键值对的形式存储，值可以是字符串、哈希、列表、集合、有序集合等数据结构。同时，它还具有一些自己的关键特点：</p>
+<ul>
+<li><strong>内存存储：</strong> Redis 将数据存储在内存中，这使得数据的读写速度非常快，适合对延迟敏感的应用。</li>
+<li><strong>键值存储：</strong> Redis 使用键值对（key-value）的方式存储数据。每个键都是一个字符串，与之相关联的值可以是字符串、哈希、列表、集合、有序集合等数据结构。</li>
+<li><strong>持久化支持：</strong> Redis 提供了两种持久化方式，分别是快照（snapshotting）和追加日志文件（append-only file），这样可以在服务器重启后恢复数据。</li>
+<li><strong>数据结构支持：</strong> Redis 不仅仅是简单的键值存储，还支持多种复杂的数据结构，如哈希表（hashes）、列表（lists）、集合（sets）、有序集合（sorted sets）等，这使得它适用于不同种类的应用场景。</li>
+<li><strong>发布订阅：</strong> Redis 支持发布-订阅模式，允许多个客户端订阅一个或多个频道，当某个频道的消息被发布时，订阅者将收到相应的消息。</li>
+<li><strong>高可用性：</strong> Redis 支持主从复制和哨兵模式，可以实现数据的备份和故障转移，提高系统的可用性。</li>
+<li><strong>分布式缓存：</strong> Redis 常被用作分布式缓存，可以在应用程序和后端数据存储之间起到缓冲的作用，减轻数据库的负载。</li>
+<li><strong>事务支持：</strong> Redis 支持简单的事务，通过 MULTI、EXEC、DISCARD 和 WATCH 等命令可以实现一系列命令的原子性执行。</li>
+</ul>
+<p>因此，对于大多数的业务场景中，我们通常将 Redis 与 SQL 一起使用，但二者的用途不同。SQL 用于持久性数据存储和复杂查询，而 Redis 则用于高速缓存、实时计数、消息队列等。在项目中是否需要同时使用它们取决于项目的具体需求和性能优化的目标，从而共同发挥他们的优势。</p>
+<h2 id="2-安装与启动"><a href="#2-安装与启动" class="headerlink" title="2. 安装与启动"></a>2. 安装与启动</h2><p>对于 Redis 的安装部分，我们只需要下载对应版本的安装文件包即可，这里给出链接<a target="_blank" rel="noopener" href="https://github.com/tporadowski/redis/releases">Redis (github.com)</a>，目前最新的版本为 <code>5.0.14.1</code></p>
+<p><img src="https://pic1.imgdb.cn/item/67caaab1066befcec6e03351.png" alt="2"></p>
+<p>在下载解压之后，我们进入解压后的文件夹路径，输入以下命令启动 Redis 服务</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">redis-server.exe redis.windows.conf</span><br></pre></td></tr></table></figure>
+<p><img src="https://pic1.imgdb.cn/item/67caaab1066befcec6e03353.png" alt="3"></p>
+<p>此时可以看到 Redis 的 Logo 和启动成功的信息，默认端口号为 <code>6379</code>。</p>
+<p>我们保持 <strong>redis-server</strong> 即服务器端运行，再次打开一个cmd窗口，启动 <strong>redis-cli</strong> 即客户端，即可创建我们的键值对了。</p>
+<p><img src="https://pic1.imgdb.cn/item/67caaab2066befcec6e03355.png" alt="4"></p>
+<p>至此，Redis的安装与简单使用部分我们已经完成了，接下来就是更加深入的使用方法了。</p>
+<h2 id="3-基本语法"><a href="#3-基本语法" class="headerlink" title="3. 基本语法"></a>3. 基本语法</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>介绍</th>
+<th>特性</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String(字符串)</td>
+<td>一个可变的字节数组</td>
+<td>可以包含任何数据,比如jpg图片或者序列化的对象（最大存储512M ）</td>
+<td>初始化、获取、长度、子串、覆盖、追加、计数、过期、删除等操作</td>
+</tr>
+<tr>
+<td>Hash(哈希)</td>
+<td>二维结构，第一维是数组，第二维是链表（HashMap）</td>
+<td>一个 string 类型的 field 和 value 的映射表，hash 特别适合用于存储对象</td>
+<td>存储、读取、修改，普通用户属性</td>
+</tr>
+<tr>
+<td>List(列表)</td>
+<td>链表(双向链表)，按照插入顺序排序</td>
+<td>随机定位性能较弱，首尾插入删除性能较优。可以使用自然数或者负下标（从-1开始递减）</td>
+<td>适合做消息队列，有时间线的列表呈现</td>
+</tr>
+<tr>
+<td>Set(集合)</td>
+<td>哈希表实现无序集合</td>
+<td>添加，删除，查找的复杂度都是 O(1)，重复元素自动忽略</td>
+<td>利用唯一性,统计访问网站的所有独立ip，不重复的序列呈现</td>
+</tr>
+<tr>
+<td>Sorted Set(有序集合)</td>
+<td>将Set中的元素增加一个权重参数score（double）,元素按score有序排列</td>
+<td>score可重复，按从小到大自动排序</td>
+<td>排行榜等需要排序的列表呈现</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)。</p>
+<h3 id="3-1-String"><a href="#3-1-String" class="headerlink" title="3.1. String"></a>3.1. String</h3><ul>
+<li>string 是 redis 最基本的类型</li>
+<li>string 类型是二进制安全的。意思是 redis 的 string 可以包含任何数据。比如jpg图片或者序列化的对象。</li>
+<li>string 类型是 Redis 最基本的数据类型，string 类型的值最大能存储 512MB。</li>
+</ul>
+<h3 id="3-2-hash"><a href="#3-2-hash" class="headerlink" title="3.2. hash"></a>3.2. hash</h3><ul>
+<li>Redis hash 是一个键值(key=&gt;value)对集合。</li>
+<li>Redis hash 是一个 string 类型的 field 和 value 的映射表，hash 特别适合用于存储对象。</li>
+</ul>
+<h3 id="3-3-list"><a href="#3-3-list" class="headerlink" title="3.3. list"></a>3.3. list</h3><ul>
+<li>Redis 列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; lpush ListDemo first</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; lpush ListDemo second</span><br><span class="line">(<span class="built_in">integer</span>) 2</span><br><span class="line">redis 127.0.0.1:6379&gt; lpush ListDemo third</span><br><span class="line">(<span class="built_in">integer</span>) 3</span><br><span class="line">redis 127.0.0.1:6379&gt; lrange ListDemo 0 10</span><br><span class="line">1) <span class="string">&quot;first&quot;</span></span><br><span class="line">2) <span class="string">&quot;second&quot;</span></span><br><span class="line">3) <span class="string">&quot;third&quot;</span></span><br><span class="line">redis 127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3-4-set"><a href="#3-4-set" class="headerlink" title="3.4. set"></a>3.4. set</h3><ul>
+<li>集合是一个无序的字符串元素集合，支持添加、删除、查找等操作。</li>
+<li>集合可以用于存储唯一的元素，也可以进行交集、并集等操作。</li>
+<li>使用<code>sadd key member</code>向集合添加键值对，成功返回1，如果元素已经在集合中返回 0。</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; sadd SetDemo first</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; sadd SetDemo second</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; sadd SetDemo third</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; sadd SetDemo third</span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">redis 127.0.0.1:6379&gt; smembers SetDemo</span><br><span class="line">1) <span class="string">&quot;first&quot;</span></span><br><span class="line">2) <span class="string">&quot;second&quot;</span></span><br><span class="line">3) <span class="string">&quot;third&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-5-Sorted-Set"><a href="#3-5-Sorted-Set" class="headerlink" title="3.5. Sorted Set"></a>3.5. Sorted Set</h3><ul>
+<li>有序集合类似于集合，但每个元素都关联着一个分数（score），用于排序元素。</li>
+<li>有序集合通常用于实现排行榜、范围查找等功能。</li>
+<li>使用<code>zadd key score member</code>向有序集合添加内容，成功返回1，如果元素已经在集合中返回 0。</li>
+<li>有序集合分数可不唯一。</li>
+</ul>
+<h2 id="4-Go与Redis"><a href="#4-Go与Redis" class="headerlink" title="4. Go与Redis"></a>4. Go与Redis</h2><p>在介绍完Redis的基本操作后，若想将其运用到我们的Go项目中，少不了的是 <strong>go-redis</strong> ，<code>go-redis</code> 是 Go 语言中一个流行的 Redis 客户端库，用于与 Redis 服务器进行交互。它提供了一组简单且强大的 API，使得在 Go 项目中操作 Redis 数据库变得更加方便和高效。</p>
+<h3 id="4-1-服务端配置"><a href="#4-1-服务端配置" class="headerlink" title="4.1. 服务端配置"></a>4.1. 服务端配置</h3><p>对于服务端，当我们需要在程序中连接到 Redis 服务器时，通常会使用配置文件来存储与连接相关的信息，例如服务器地址、端口号、密码等。</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;redis&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;address&quot;</span><span class="punctuation">:</span> <span class="string">&quot;redis-server-address&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;port&quot;</span><span class="punctuation">:</span> <span class="number">6379</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;your-password&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-2-客户端配置"><a href="#4-2-客户端配置" class="headerlink" title="4.2. 客户端配置"></a>4.2. 客户端配置</h3><p>而对于客户端，我们可以通过命令安装 <code>go-redis</code> 库</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">go get github.com/go-redis/redis/v8</span><br></pre></td></tr></table></figure>
+<p>并在相应的文件中导入即可</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&quot;github.com/go-redis/redis/v8&quot;</span></span><br></pre></td></tr></table></figure>
+<p>调用时，使用 <code>redis.NewClient</code> 函数创建一个客户端实例。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">options := &amp;redis.Options&#123;</span><br><span class="line">    Addr:     <span class="string">&quot;localhost:6379&quot;</span>, <span class="comment">// Redis 服务器地址</span></span><br><span class="line">    Password: <span class="string">&quot;&quot;</span>,               <span class="comment">// Redis 密码，默认为空</span></span><br><span class="line">    DB:       <span class="number">0</span>,                <span class="comment">// 数据库编号，默认为0</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">client := redis.NewClient(options)</span><br></pre></td></tr></table></figure>
+<p>同时对于键值对的 set 和 get 操作，也同样可以执行</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">ctx := context.Background()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置键值对</span></span><br><span class="line">err := client.Set(ctx, <span class="string">&quot;KeyDemo&quot;</span>, <span class="string">&quot;ValueDemo&quot;</span>, <span class="number">0</span>).Err()</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取值</span></span><br><span class="line">value, err := client.Get(ctx, <span class="string">&quot;KeyDemo&quot;</span>).Result()</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Println(<span class="string">&quot;KeyDemo:&quot;</span>, value)</span><br></pre></td></tr></table></figure>
+<p>当然，当我们完成交互后，别忘了关闭链接释放资源。</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line">err := client.Close()</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    <span class="built_in">panic</span>(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-小结"><a href="#5-小结" class="headerlink" title="5. 小结"></a>5. 小结</h2><p>好了，本篇文章到这里就结束了，Redis 作为一款功能强大的数据库，极大的便利了我们的开发，文章中如有不足，还请读者多多指出，谢谢！</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Fine_974</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2023/08/28/Redis，启动！/">http://example.com/2023/08/28/Redis，启动！/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2024/01/31/Carrot/"><i class="fa fa-chevron-left">  </i><span>Make Carrot Great Again！</span></a></div><div class="next-post pull-right"><a href="/2023/08/27/Go%20Web%20%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98%E7%B3%BB%E5%88%97%EF%BC%9A%E9%AB%98%E6%80%A7%E8%83%BD%20Web%20%E6%A1%86%E6%9E%B6%20Gin/"><span>Go Web 入门与实战系列：高性能 Web 框架 Gin</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://pic.imgdb.cn/item/65be24f5871b83018aa67720.png)"><div class="layout" id="footer"><div class="copyright">&copy;2018 - 2025 By Fine_974</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  CommonHTML: {
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "HTML-CSS": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  },
+  "SVG": { 
+    linebreaks: { automatic: true, width: "90% container" }
+  }
+});
+</script><script type="text/x-mathjax-config">MathJax.Hub.Queue(function() {
+  var all = MathJax.Hub.getAllJax(), i;
+  for (i=0; i < all.length; i += 1) {
+    all[i].SourceElement().parentNode.className += ' has-jax';
+  }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
